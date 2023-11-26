@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "code": "MOVEIN",
+        "details": "Save $100 on your first month’s rent",
+        "value": 100,
+        "expiration":"2023-12-31"
+    },
+    {
+        "id": 2,
+        "code": "REFER",
+        "details": "Get $50 credit for referring a friend",
+        "value": 50,
+        "expiration":"2023-12-31"
+    },
+    {
+        "id": 3,
+        "code": "RENEW",
+        "details": "Get $50 credit for referring a friend",
+        "value": 50,
+        "expiration":"2023-12-31"
+    },
+    {
+        "id": 4,
+        "code": "REFER",
+        "details": "Get $50 credit for referring a friend",
+        "value": 50,
+        "expiration":"2023-12-31"
+    },
+    {
+        "id": 5,
+        "code": "REFER",
+        "details": "Get $50 credit for referring a friend",
+        "value": 50,
+        "expiration":"2023-12-31"
+    }
+]

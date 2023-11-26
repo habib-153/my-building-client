@@ -18,7 +18,7 @@ const Location = () => {
     zoom: 15,
   };
   return (
-    <div style={{ height: "600px", width: "" }}>
+    <div style={{ height: "550px", width: "" }}>
       <GoogleMapReact
         // Replace this with your own Google Maps API key and other options
         bootstrapURLKeys={{

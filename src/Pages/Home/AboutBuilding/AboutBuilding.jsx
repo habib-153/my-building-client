@@ -3,9 +3,9 @@ import Img from '../../../assets/assets/others/logo3.webp'
 import moment from 'moment';
 const AboutBuilding = () => {
     return (
-        <div className="featured-item bg-fixed h-600px pt-10">
+        <div className="background bg-fixed h-600px pt-10">
             <SectionTitle subHeading='Check it out' heading='About Our Building'></SectionTitle>
-            <div className="md:flex justify-center items-center pb-20 pt-12 px-36 my-6">
+            <div className="md:flex justify-center items-center pb-20 pt-12 px-8 md:px-20 lg:px-36 my-6">
                 <div>
                     <img src={Img} alt="" />
                 </div>
