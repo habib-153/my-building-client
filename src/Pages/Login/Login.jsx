@@ -4,9 +4,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-// import { FcGoogle } from 'react-icons/fc';
 import SocialLogin from "../../Comnonent/SocialLogin/SocialLogin";
-
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true)
@@ -51,38 +49,11 @@ const Login = () => {
     
     const handleValidateCaptcha = (e) =>{
         const user_captcha_value = e.target.value;
-        //console.log(value)
         if (validateCaptcha(user_captcha_value)==true) {
-            //alert('Captcha Matched');
             setDisabled(false)
         }
     }
-    // const handleGoogleLogin =()=>{
-    //   signInWithGoogle()
-    //   .then((res) => {
-    //     console.log(res.user)
-    //     Swal.fire({
-    //       title: "User Logged in successful",
-    //       showClass: {
-    //         popup: `
-    //           animate__animated
-    //           animate__fadeInUp
-    //           animate__faster
-    //         `
-    //       },
-    //       hideClass: {
-    //         popup: `
-    //           animate__animated
-    //           animate__fadeOutDown
-    //           animate__faster
-    //         `
-    //       }
-    //     });
-  
-    //     // navigate after login
-    //     navigate('/')
-    //   })
-    // }
+    
     return (
         <div className="hero min-h-screen ">
       <div className="hero-content flex-col lg:flex-row gap-12">
@@ -138,9 +109,6 @@ const Login = () => {
             </div>
           </form>
           <div className="mx-auto">
-            {/* <button onClick={handleGoogleLogin} className="hover:bg-[#269136]  btn btn-outline my-2">
-              <FcGoogle className="text-xl"></FcGoogle>Continue with Google
-            </button> */}
             <SocialLogin></SocialLogin>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/assets/others/authentication.gif';
-//import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
@@ -12,8 +11,6 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const Register = () => {
-    //const captchaRef = useRef(null)
-    //const [disabled, setDisabled] = useState(true)
     const axiosPublic = useAxiosPublic()
     const {createUser, updateUserProfile} = useContext(AuthContext)
     const navigate = useNavigate()
@@ -24,18 +21,6 @@ const Register = () => {
         formState: { errors },
       } = useForm()
 
-    // useEffect(()=>{
-    //     loadCaptchaEnginge(6); 
-    // },[])
-    
-    // const handleValidateCaptcha = () =>{
-    //     const user_captcha_value = captchaRef.current.value;
-    //     //console.log(value)
-    //     if (validateCaptcha(user_captcha_value)==true) {
-    //         //alert('Captcha Matched');
-    //         setDisabled(false)
-    //     }
-    // }
     const onSubmit = async (data) => {
         console.log(data)
         const imageFile = { image: data.photoURL[0]}

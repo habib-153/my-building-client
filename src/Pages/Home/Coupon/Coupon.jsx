@@ -6,7 +6,7 @@ const Coupon = () => {
     const [coupons, setCoupons] = useState([])
 
     useEffect(()=>{
-        fetch('coupon.json')
+        fetch('http://localhost:5000/coupon')
         .then(res => res.json())
         .then(data => setCoupons(data))
     },[])
@@ -15,7 +15,7 @@ const Coupon = () => {
             <SectionTitle heading='COUPONS' subHeading='Want Some discount?'></SectionTitle>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4  mt-4"> 
             {
-                coupons.map(coupon =><div key={coupon.id} className="flex bg-[#F9F2ED] rounded-xl items-center justify-between">
+                coupons.map(coupon =><div key={coupon._id} className="flex bg-[#F9F2ED] rounded-xl items-center justify-between">
                     <div className="p-4 lg:p-8 text-center space-y-2">
                         <h2 className="text-2xl md:text-5xl font-bold">{coupon.code}</h2>
                         <p className="border-b-2 border-black p-2">Valid Until <span className="font-bold">{coupon.expiration}</span></p>
