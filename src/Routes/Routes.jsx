@@ -6,7 +6,7 @@ import Register from "../Pages/Register/Register";
 import Dashboard from "../Layout/Dashboard";
 import Cart from "../Pages/Dashboard/Cart/Cart";
 import PrivateRoute from "./privateRoute";
-import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AllUsers from "../Pages/Dashboard/ManageMember/ManageMembers";
 import AdminRoute from "./AdminRoute";
 import AddItems from "../Pages/Dashboard/AddApartments/AddApartments";
 import Payment from "../Pages/Dashboard/Payment/Payment";
@@ -80,7 +80,7 @@ export const router = createBrowserRouter([
         element:<AdminRoute><AdminHome></AdminHome></AdminRoute>
       },
       {
-        path:'allUsers',
+        path:'manageMember',
         element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
