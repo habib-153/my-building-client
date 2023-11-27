@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-
+import moment from 'moment';
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -22,6 +22,7 @@ const Card = ({ item }) => {
         Block_name: apartment.block_name,
         Apartment_no: apartment.apartment_No,
         Rent: apartment.rent,
+        requestDate:moment().format("YYYY-MM-DD"),
         Status: 'pending'
       };
       // console.log(requestedApartment)

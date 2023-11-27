@@ -21,7 +21,7 @@ const Announcement = () => {
               <div className="card-body">
                 <h2 className="card-title">Title: {announcement.title}</h2>
                 <p>
-                  <p className="font-bold">Description: </p>
+                  <span className="font-bold">Description: </span>
                   {announcement.description}
                 </p>
               </div>
