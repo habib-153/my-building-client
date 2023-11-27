@@ -21,7 +21,7 @@ const Navbar = () => {
       </li>
       <li>
         <Link className="text-white mx-5" to="apartment">
-          Apartment
+          Apartments
         </Link>
       </li>
       {user ? undefined : (

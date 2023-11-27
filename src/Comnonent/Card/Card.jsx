@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useCart from "../../Hooks/useCart";
 
-const FoodCard = ({item}) => {
-    const {name ,image, price, recipe, _id} = item
+const Card = ({item}) => {
+    const {apartment_No ,block_name, rent, floor_No,image, _id} = item
     const {user} = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
@@ -20,7 +20,7 @@ const FoodCard = ({item}) => {
         const cartItem = {
           menuId : _id,
           email: user.email,
-          name,image,price
+          
         }
         axiosSecure.post('/carts', cartItem)
         .then(res => {
@@ -29,7 +29,7 @@ const FoodCard = ({item}) => {
             Swal.fire({
               //position: "top-end",
               icon: "success",
-              title: `${name} added to cart`,
+              title: ` added to cart`,
               showConfirmButton: false,
               timer: 1500
             });
@@ -49,27 +49,29 @@ const FoodCard = ({item}) => {
           confirmButtonText: "Login"
         }).then((result) => {
           if (result.isConfirmed) {
-            // send the user to navigate page
             navigate('/login', {state: {from: location}})
           }
         });
       }
     }
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src={image} alt={name} /></figure>
-  <p className="bg-slate-900 absolute right-0 mr-4 mt-4 px-4 text-white">${price}</p>
-  <div className="card-body flex flex-col items-center">
-    <h2 className="card-title">{name}</h2>
-    <p>{recipe}</p>
+        <div className="card bg-base-100 shadow-xl">
+  <figure><img src={image}  /></figure>
+  <div className="card-body flex flex-col">
+    <h2 className="card-title">Apartment NO: {apartment_No}</h2>
+    <div className="flex">
+    <p>Block: <span className="font-bold">{block_name}</span></p>
+    <p>Floor: <span className="font-bold">{floor_No}</span></p>
+    <p>Rent: <span className="font-bold">${rent}</span></p>
+    </div>
     <div className="card-actions justify-end">
     <button 
     onClick={() => handleAddToCart(item)}
-    className="btn border-0 border-b-4 btn-outline">Add to Cart</button>
+    className="btn bg-[#64b6dfec] hover:bg-[#64b6dfec] border-0 border-b-4 border-[#21526bec]">Agreement</button>
     </div>
   </div>
 </div>
     );
 };
 
-export default FoodCard;
+export default Card;

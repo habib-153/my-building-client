@@ -12,12 +12,10 @@ dist
 dist-ssr
 *.local 
 # 
-AddItems
 AllUsers
 AdminHome
 Cart
 CheckOutForm
-ManageItems
 Payment
 paymentHistory
 UpdateItem
