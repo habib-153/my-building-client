@@ -19,7 +19,6 @@ CheckOutForm
 Payment
 paymentHistory
 UpdateItem
-UserHome
 Hooks
 Layout
 Routes.jsx
