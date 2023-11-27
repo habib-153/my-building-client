@@ -26,9 +26,9 @@ const ManageCoupon = () => {
       details,
       value,
     };
-    const menuRes = await axiosSecure.post("/coupon", newCoupon);
-    console.log(menuRes.data);
-    if (menuRes.data.insertedId) {
+    const res = await axiosSecure.post("/coupon", newCoupon);
+    console.log(res.data);
+    if (res.data.insertedId) {
       // show success popup
       Swal.fire({
         icon: "success",
