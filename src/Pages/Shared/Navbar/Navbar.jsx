@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useAdmin from "../../../Hooks/useAdmin";
 import navImg from '../../../assets/assets/others/logo3.webp'
+import useMember from "../../../Hooks/useMember";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
+  const [isMember] = useMember();
 
   const handleLogOut = () => {
     logOut()
@@ -102,7 +104,7 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
-                {/* {user && isAdmin && (
+                {user && !isAdmin && isMember && (
                   <li>
                     <Link
                       className="text-white border-0 btn btn-sm btn-outline"
@@ -111,8 +113,8 @@ const Navbar = () => {
                       Dashboard
                     </Link>
                   </li>
-                )} */}
-                {user && !isAdmin && (
+                )}
+                {user && !isAdmin && !isMember && (
                   <li>
                     <Link
                       className="text-white border-0 btn btn-sm btn-outline"

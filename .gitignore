@@ -18,10 +18,8 @@ Cart
 CheckOutForm
 Payment
 paymentHistory
-UpdateItem
-Hooks
-Layout
-Routes.jsx
+useCart.jsx
+useMenu.jsx
 # 
 # Editor directories and files
 .vscode/*
