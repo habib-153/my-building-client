@@ -13,9 +13,9 @@ const MemberHome = () => {
       return res.data;
     },
   });
-  console.log(bookedApartment);
-  const [{ AcceptedDate, Floor_no, Block_name, Apartment_no, Rent }] =
-    bookedApartment;
+  //console.log(bookedApartment);
+  // const [{ AcceptedDate, Floor_no, Block_name, Apartment_no, Rent }] =
+  //   bookedApartment;
   return (
     <div>
       <h2 className="flex gap-3 items-center">
@@ -38,18 +38,26 @@ const MemberHome = () => {
             <p>Email: {user.email}</p>
             <p>
               Agreement accept date:{" "}
-              <span className="font-semibold">{AcceptedDate}</span>
+              <span className="font-semibold">{bookedApartment?.map(apartment => <span key={apartment._id}>{apartment.AcceptedDate}</span>)}</span>
             </p>
-            <p className="font-bold">Rented Apartment Info: </p>
-            <div>
-              <div>
-                <p>Floor: {Floor_no}</p>
-                <p>Block: {Block_name}</p>
-              </div>
-              <div>
-                <p>Room No: {Apartment_no}</p>
-                <p>Rent: ${Rent}</p>
-              </div>
+            <div className="grid grid-cols-1">
+              {
+                bookedApartment?.map(apartment => <div key={apartment._id}>
+                  <div className="p-2 bg-slate-100 rounded-lg">
+                  <p className="font-bold">Rented Apartment Info: </p>
+                  <div className="flex justify-between">
+               <div>
+                 <p>Floor: {apartment.Floor_no}</p>
+                 <p>Block: {apartment.AcceptedDate}</p>
+               </div>
+               <div>
+                 <p>Room No: {apartment.Apartment_no}</p>
+                 <p>Rent: ${apartment.Rent}</p>
+               </div>
+             </div>
+                  </div>
+                </div>)
+              }
             </div>
           </div>
         </div>
