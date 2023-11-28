@@ -41,7 +41,7 @@ const Card = ({ item }) => {
     } else {
       Swal.fire({
         title: "You are not Logged In",
-        text: "Please login to add to the Cart",
+        text: "Please login For agreement",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

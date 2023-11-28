@@ -4,7 +4,7 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Dashboard from "../Layout/Dashboard";
-import Cart from "../Pages/Dashboard/Cart/Cart";
+import MakePayment from "../Pages/Dashboard/MakePayment/MakePayment";
 import PrivateRoute from "./privateRoute";
 import AllUsers from "../Pages/Dashboard/ManageMember/ManageMembers";
 import AdminRoute from "./AdminRoute";
@@ -63,8 +63,8 @@ export const router = createBrowserRouter([
         element:<MemberRoute><MemberHome></MemberHome></MemberRoute>
       },
       {
-        path:'cart',
-        element:<Cart></Cart>
+        path:'makePayment',
+        element:<MakePayment></MakePayment>
       },
       {
         path:'payment',
