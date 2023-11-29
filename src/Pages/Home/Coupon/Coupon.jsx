@@ -1,15 +1,18 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Coupon = () => {
-    const [coupons, setCoupons] = useState([])
 
-    useEffect(()=>{
-        fetch('http://localhost:5000/coupon')
-        .then(res => res.json())
-        .then(data => setCoupons(data))
-    },[])
+    const axiosPublic = useAxiosPublic();
+  const { data: coupons = [],  } = useQuery({
+    queryKey: ["coupon"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/coupon");
+      return res.data;
+    },
+  });
+
     return (
         <div className="my-4 mx-2">
             <SectionTitle heading='COUPONS' subHeading='Want Some discount?'></SectionTitle>

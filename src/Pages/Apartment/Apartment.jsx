@@ -22,7 +22,7 @@ const Apartment = () => {
 
   const url = `/apartment?page=${currentPage}&size=${itemsPerPage}`
   useEffect(()=>{
-    fetch('http://localhost:5000/apartmentsCount')
+    fetch('https://assignment-12-category-0011-serve-side.vercel.app/apartmentsCount')
     .then(res => res.json())
     .then(data=> setCount(data.count))
 },[])
