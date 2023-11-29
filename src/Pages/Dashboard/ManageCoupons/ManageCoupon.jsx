@@ -150,24 +150,24 @@ const ManageCoupon = () => {
           </dialog>
         </div>
         <div>
-          <div className="overflow-x-auto p-6 mt-12 shadow-lg rounded-lg">
+          <div className="overflow-x-auto p-2 mt-12 shadow-lg rounded-lg">
             <h2 className="text-3xl font-semibold py-4">
               TOTAL COUPON: {coupons.length}
             </h2>
             <table className="table ">
               {/* head */}
               <thead className="bg-[#64b6dfec] rounded-lg">
-                <tr className="text-center">
+                <tr className="">
                   <th>#</th>
                   <th>Code</th>
                   <th>Expiration</th>
-                  <th className="text-center">Discount</th>
-                  <th className="text-center hidden md:block">Action</th>
+                  <th className="">Discount</th>
+                  <th className="">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {coupons.map((coupon, idx) => (
-                  <tr className="text-center" key={coupon._id}>
+                  <tr className="" key={coupon._id}>
                     <td>{idx + 1}</td>
                     <th>
                       <p>{coupon.code}</p>

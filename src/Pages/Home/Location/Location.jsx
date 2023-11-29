@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import GoogleMapReact from "google-map-react";
 import { FaLocationDot } from "react-icons/fa6";
+import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 const AnyReactComponent = ({ text }) => (
   <div style={{ color: "red" }}>
     {/* {text} */}
@@ -18,7 +19,9 @@ const Location = () => {
     zoom: 15,
   };
   return (
-    <div style={{ height: "550px", width: "" }}>
+    <div className="mt-6">
+      <SectionTitle heading="Our Location"></SectionTitle>
+      <div className="mt-6" style={{ height: "550px", width: "" }}>
       <GoogleMapReact
         // Replace this with your own Google Maps API key and other options
         bootstrapURLKeys={{
@@ -36,6 +39,8 @@ const Location = () => {
         />
       </GoogleMapReact>
     </div>
+    </div>
+    
   );
 };
 

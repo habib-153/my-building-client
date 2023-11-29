@@ -27,7 +27,7 @@ const PaymentHistory = () => {
           <thead className="bg-[#64b6dfec] rounded-lg">
             <tr className="">
               <th>#</th>
-              <th>User Info</th>
+              <th>Member Info</th>
               <th>Payment Info</th>
               <th className="">Transaction Id</th>
             </tr>

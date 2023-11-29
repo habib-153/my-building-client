@@ -21,15 +21,15 @@ const AgreementRequest = () => {
     };
 
     const bookedAgreement = {
-        userName: item.userName,
-        userEmail: item.userEmail,
-        Floor_no: item.Floor_no,
-        Block_name: item.Block_name,
-        Apartment_no: item.Apartment_no,
-        Rent: item.Rent,
-        requestDate:item.requestDate,
-        AcceptedDate:moment().format("YYYY-MM-DD"),
-    }
+      userName: item.userName,
+      userEmail: item.userEmail,
+      Floor_no: item.Floor_no,
+      Block_name: item.Block_name,
+      Apartment_no: item.Apartment_no,
+      Rent: item.Rent,
+      requestDate: item.requestDate,
+      AcceptedDate: moment().format("YYYY-MM-DD"),
+    };
     // console.log(updatedAgreement, bookedAgreement)
     const res = await axiosSecure.patch(
       `/agreementRequests/${item._id}`,
@@ -40,27 +40,27 @@ const AgreementRequest = () => {
       // show success popup
       axiosSecure.post("/bookedApartment", bookedAgreement).then((res) => {
         if (res.data.insertedId) {
-            axiosSecure.patch(`/users/member/${item.userEmail}`).then((res) => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                //   refetch();
-                  Swal.fire({
-                    title: "Accepted",
-                    text: `${item.userName} is a member Now`,
-                    icon: "success",
-                    showConfirmButton: false,
-                    timer: 1500,
-                  });
-                }
+          axiosSecure.patch(`/users/member/${item.userEmail}`).then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+              //   refetch();
+              Swal.fire({
+                title: "Accepted",
+                text: `${item.userName} is a member Now`,
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500,
               });
+            }
+          });
         }
       });
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Checked & Rejected",
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    //   });
+      //   Swal.fire({
+      //     icon: "success",
+      //     title: "Checked & Rejected",
+      //     showConfirmButton: false,
+      //     timer: 1500,
+      //   });
       refetch();
     }
   };
@@ -89,7 +89,7 @@ const AgreementRequest = () => {
     <div>
       <SectionTitle heading="Agreement Requests"></SectionTitle>
       <div>
-        <div className="overflow-x-auto p-6 mt-12 shadow-lg rounded-lg">
+        <div className="overflow-x-auto p-6 mt-12 hidden md:block shadow-lg rounded-lg">
           <h2 className="text-3xl font-semibold py-4">
             TOTAL Request: {agreementRequests.length}
           </h2>
@@ -144,6 +144,48 @@ const AgreementRequest = () => {
               ))}
             </tbody>
           </table>
+        </div>
+        <div className=" grid grid-cols-1 gap-4 md:hidden">
+          {agreementRequests?.map((agreement) => (
+            <div className="w-full" key={agreement._id}>
+              <div className="card mx-auto bg-base-100 shadow-xl">
+                <div className="card-body">
+                <p className="text-right font-bold">{agreement.Status}</p>
+                  <p className="font-bold">User Info: </p>
+                  <p>Name: {agreement.userName}</p>
+                  <p> Email: {agreement.userEmail}</p>
+                  <p className="font-bold">Rented Apartment Info: </p>
+                  <div className="flex justify-between">
+                    <div>
+                      <p>Floor: {agreement.Floor_no}</p>
+                      <p>Block: {agreement.Block_name}</p>
+                    </div>
+                    <div>
+                      <p>Room No: {agreement.Apartment_no}</p>
+                      <p>Rent: ${agreement.Rent}</p>
+                    </div>
+                  </div>
+                  <p className="font-semibold">
+                    Request Date: {agreement.requestDate}
+                  </p>
+                </div>
+                <div className="text-center px-3 pb-4 flex justify-between items-center">
+                    <button
+                      onClick={() => handleAccept(agreement)}
+                      className="btn  text-green-600"
+                    >
+                      Accept
+                    </button>
+                    <button
+                      onClick={() => handleReject(agreement._id)}
+                      className="btn  text-red-600"
+                    >
+                      Reject
+                    </button>
+                  </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

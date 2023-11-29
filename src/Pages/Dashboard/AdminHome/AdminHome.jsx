@@ -85,7 +85,7 @@ const AdminHome = () => {
       </div>
       <div className="mt-8 text-center">
         <SectionTitle heading="Stats"></SectionTitle>
-        <div className="stats shadow">
+        <div className="stats shadow flex flex-col md:flex-row">
           <div className="stat">
             <div className="stat-figure text-3xl text-secondary">
               <FaDollarSign></FaDollarSign>
@@ -119,7 +119,7 @@ const AdminHome = () => {
         </div>
       </div>
         <div className=" w-full">
-          <PieChart className="mx-auto" width={400} height={400}>
+          <PieChart className="mx-auto" width={300} md:width={400} height={400}>
             <Pie
               data={pieChartData}
               cx="50%"
