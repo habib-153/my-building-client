@@ -12,14 +12,6 @@ dist
 dist-ssr
 *.local 
 # 
-AdminHome
-Cart
-CheckOutForm
-Payment
-paymentHistory
-useCart.jsx
-useMenu.jsx
-# 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

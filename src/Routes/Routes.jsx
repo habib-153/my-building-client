@@ -10,7 +10,6 @@ import AllUsers from "../Pages/Dashboard/ManageMember/ManageMembers";
 import AdminRoute from "./AdminRoute";
 import AddItems from "../Pages/Dashboard/AddApartments/AddApartments";
 import Payment from "../Pages/Dashboard/Payment/Payment";
-import PaymentHistory from "../Pages/Dashboard/paymentHistory/PaymentHistory";
 import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import ManageCoupon from "../Pages/Dashboard/ManageCoupons/ManageCoupon";
@@ -20,7 +19,7 @@ import Announcement from "../Pages/Dashboard/Announcement/Announcement";
 import MemberRoute from "./MemberRoute";
 import MemberHome from "../Pages/Dashboard/MemberHome/MemberHome";
 import AgreementRequest from "../Pages/Dashboard/AgreementRequests/AgreementRequest";
-
+import PaymentHistory from "../Pages/Dashboard/paymentHistory/PaymentHistory"
 
 export const router = createBrowserRouter([
   {
