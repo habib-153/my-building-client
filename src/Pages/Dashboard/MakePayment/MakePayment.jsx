@@ -3,6 +3,7 @@ import useCart from "../../../Hooks/useCart";
 import {  useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const MakePayment = () => {
   const { register, handleSubmit } = useForm();
@@ -19,6 +20,9 @@ const MakePayment = () => {
   };
   return (
     <div>
+      <Helmet>
+                <title>My Building | MakePayment</title>
+            </Helmet>
       <SectionTitle heading="Pay The Rent"></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">

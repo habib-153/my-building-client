@@ -11,6 +11,7 @@ import { RiCoupon3Line, RiProfileFill } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useMember from "../Hooks/useMember";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin()
@@ -107,6 +108,9 @@ const Dashboard = () => {
   )
   return (
     <div>
+      <Helmet>
+                <title>My Building | Dashboard</title>
+      </Helmet>
     <div className="md:flex">
       <div className="w-64 min-h-screen hidden lg:block bg-[#64b6dfec]">
         <ul className="menu">

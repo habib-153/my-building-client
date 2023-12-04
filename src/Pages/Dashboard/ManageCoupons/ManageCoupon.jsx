@@ -3,6 +3,7 @@ import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaTrash } from "react-icons/fa6";
+import { Helmet } from "react-helmet-async";
 
 const ManageCoupon = () => {
   const axiosSecure = useAxiosSecure();
@@ -64,6 +65,9 @@ const ManageCoupon = () => {
 
   return (
     <div>
+      <Helmet>
+                <title>My Building | ManageCoupon</title>
+            </Helmet>
       <SectionTitle heading="Coupon Codes"></SectionTitle>
       <div>
         <div>

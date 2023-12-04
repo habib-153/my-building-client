@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MakeAnnouncement = () => {
     const axiosSecure = useAxiosSecure();
@@ -26,6 +27,9 @@ const MakeAnnouncement = () => {
     }
     return (
         <div>
+          <Helmet>
+                <title>My Building | Make Announcement</title>
+            </Helmet>
             <SectionTitle heading="Make Announcement" subHeading='Any notice?'></SectionTitle>
             <div>
             <form onSubmit={handleSubmit}>

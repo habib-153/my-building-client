@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import SocialLogin from "../../Comnonent/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -64,6 +65,9 @@ const Register = () => {
 
     return (
         <div className="hero min-h-screen pt-12">
+          <Helmet>
+                <title>My Building | Register</title>
+            </Helmet>
       <div className="hero-content flex-col md:flex-row lg:gap-12">
         <div className="">
           <img className="rounded-xl" src={loginImg} alt="" />

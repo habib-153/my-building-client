@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaTrash,} from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AllUsers = () => {
-  
   const axiosSecure = useAxiosSecure();
   const { data: users = [], refetch } = useQuery({
     queryKey: ["members"],
     queryFn: async () => {
-      const res = await axiosSecure.get('/members');
+      const res = await axiosSecure.get("/members");
       return res.data;
     },
   });
@@ -40,6 +40,9 @@ const AllUsers = () => {
   };
   return (
     <div>
+      <Helmet>
+        <title>My Building | ManageMembers</title>
+      </Helmet>
       <div>
         <SectionTitle subHeading="" heading="Manage All Users"></SectionTitle>
       </div>

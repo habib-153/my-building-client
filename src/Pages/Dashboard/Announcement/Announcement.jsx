@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const Announcement = () => {
   const axiosPublic = useAxiosPublic();
@@ -13,6 +14,9 @@ const Announcement = () => {
   });
   return (
     <div>
+      <Helmet>
+                <title>My Building | Announcements</title>
+            </Helmet>
       <SectionTitle heading="Announcements"></SectionTitle>
       <div className="grid grid-cols-1 gap-4">
         {announcements?.map((announcement) => (

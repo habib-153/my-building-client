@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import moment from "moment";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AgreementRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -87,6 +88,9 @@ const AgreementRequest = () => {
   };
   return (
     <div>
+      <Helmet>
+                <title>My Building | AgreementRequest</title>
+            </Helmet>
       <SectionTitle heading="Agreement Requests"></SectionTitle>
       <div>
         <div className="overflow-x-auto p-6 mt-12 hidden md:block shadow-lg rounded-lg">

@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
@@ -44,6 +45,9 @@ const AddItems = () => {
 
   return (
     <div>
+      <Helmet>
+                <title>My Building | AddApartment</title>
+            </Helmet>
       <SectionTitle
         heading="Add A New Apartment"
         subHeading="---What's new?---"

@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import { MdApartment } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
@@ -61,6 +62,9 @@ const AdminHome = () => {
   
   return (
     <div>
+      <Helmet>
+                <title>My Building | AdminHome</title>
+            </Helmet>
       <h2 className="flex gap-3 items-center">
         <span>Hi, Welcome </span>
         <div className="text-2xl font-semibold">

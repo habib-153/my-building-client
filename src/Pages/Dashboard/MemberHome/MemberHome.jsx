@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MemberHome = () => {
   const { user } = useAuth();
@@ -18,6 +19,9 @@ const MemberHome = () => {
   //   bookedApartment;
   return (
     <div>
+      <Helmet>
+                <title>My Building | MemberHome</title>
+            </Helmet>
       <h2 className="flex gap-3 items-center">
         <span>Hi, Welcome </span>
         <div className="text-2xl font-semibold">

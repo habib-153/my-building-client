@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Comnonent/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const [disabled, setDisabled] = useState(true)
@@ -56,6 +57,9 @@ const Login = () => {
     
     return (
         <div className="hero min-h-screen ">
+          <Helmet>
+                <title>My Building | Login</title>
+            </Helmet>
       <div className="hero-content flex-col md:flex-row lg:gap-12">
         <div className="">
           <img className="rounded-xl" src={loginImg} alt="" />
