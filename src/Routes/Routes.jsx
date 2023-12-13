@@ -20,6 +20,7 @@ import MemberRoute from "./MemberRoute";
 import MemberHome from "../Pages/Dashboard/MemberHome/MemberHome";
 import AgreementRequest from "../Pages/Dashboard/AgreementRequests/AgreementRequest";
 import PaymentHistory from "../Pages/Dashboard/paymentHistory/PaymentHistory"
+import UpdateProfile from "../Pages/Dashboard/UpdateProfile/UpdateProfile";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path:'userHome',
         element:<UserHome></UserHome>
+      },
+      {
+        path:'updateProfile',
+        element:<UpdateProfile></UpdateProfile>
       },
       {
         path:'announcement',

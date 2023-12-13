@@ -7,7 +7,7 @@ import {
 } from "react-icons/fa";
 import { MdApartment, MdPayment } from "react-icons/md";
 import { GrAnnounce } from "react-icons/gr";
-import { RiCoupon3Line, RiProfileFill } from "react-icons/ri";
+import { RiCoupon3Line, RiProfileFill, RiProfileLine } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../Hooks/useAdmin";
 import useMember from "../Hooks/useMember";
@@ -188,6 +188,11 @@ const Dashboard = () => {
           <li>
             <NavLink to="/">
               <FaHome></FaHome>Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/dashboard/updateProfile">
+              <RiProfileLine></RiProfileLine>Update Profile
             </NavLink>
           </li>
           <li>
