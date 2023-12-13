@@ -44,11 +44,11 @@ const AllUsers = () => {
         <title>My Building | ManageMembers</title>
       </Helmet>
       <div>
-        <SectionTitle subHeading="" heading="Manage All Users"></SectionTitle>
+        <SectionTitle subHeading="" heading="Manage All Member"></SectionTitle>
       </div>
       <div className="overflow-x-auto p-6 mt-12 shadow-lg rounded-lg">
         <h2 className="text-3xl font-semibold py-4">
-          TOTAL USER: {users.length}
+          TOTAL Member: {users.length}
         </h2>
         <table className="table ">
           {/* head */}

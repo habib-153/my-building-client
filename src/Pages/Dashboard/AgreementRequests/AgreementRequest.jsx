@@ -18,6 +18,8 @@ const AgreementRequest = () => {
   const handleAccept = async (item) => {
     const updatedAgreement = {
       Status: "checked",
+      action: "Accepted",
+      userEmail: item.userEmail
       // checkingTime:moment().format("YYYY-MM-DD"),
     };
 
@@ -56,22 +58,18 @@ const AgreementRequest = () => {
           });
         }
       });
-      //   Swal.fire({
-      //     icon: "success",
-      //     title: "Checked & Rejected",
-      //     showConfirmButton: false,
-      //     timer: 1500,
-      //   });
       refetch();
     }
   };
-  const handleReject = async (id) => {
+  const handleReject = async (item) => {
     const updatedAgreement = {
       Status: "checked",
+      action: "Rejected",
+      userEmail: item.userEmail
       // checkingTime:moment().format("YYYY-MM-DD"),
     };
     const res = await axiosSecure.patch(
-      `/agreementRequests/${id}`,
+      `/agreementRequests/${item._id}`,
       updatedAgreement
     );
     console.log(res.data);
@@ -138,7 +136,7 @@ const AgreementRequest = () => {
                       Accept
                     </button>
                     <button
-                      onClick={() => handleReject(agreement._id)}
+                      onClick={() => handleReject(agreement)}
                       className="btn btn-xs btn-ghost mt-2  text-red-600"
                     >
                       Reject
