@@ -1,28 +1,28 @@
 import useCart from "../../../Hooks/useCart";
 // import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Comnonent/SectionTitle/SectionTitle";
 import { Helmet } from "react-helmet-async";
 
 const MakePayment = () => {
   const { register, handleSubmit } = useForm();
-  const [cart, ] = useCart();
+  const [cart] = useCart();
   const totalRent = cart.reduce((sum, item) => sum + item.Rent, 0);
   // const axiosSecure = useAxiosSecure();
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
     // console.log(data);
-    if(data){
-      navigate('/dashboard/payment',{state: data})
+    if (data) {
+      navigate("/dashboard/payment", { state: data });
     }
   };
   return (
     <div>
       <Helmet>
-                <title>My Building | MakePayment</title>
-            </Helmet>
+        <title>My Building | MakePayment</title>
+      </Helmet>
       <SectionTitle heading="Pay The Rent"></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form-control">
@@ -92,33 +92,36 @@ const MakePayment = () => {
           </div>
         </div>
         <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-semibold">Month</span>
-                </label>
-                <select defaultValue="default"
-                  {...register("month", {required: true})}
-                  className="select select-bordered w-full"
-                >
-                  <option value="default" disabled>
-                    Select Month
-                  </option>
-                  <option value="January">January</option>
-                  <option value="February">February</option>
-                  <option value="March">March</option>
-                  <option value="April">April</option>
-                  <option value="May">May</option>
-                  <option value="June">June</option>
-                  <option value="July">July</option>
-                  <option value="August">August</option>
-                  <option value="September">September</option>
-                  <option value="October">October</option>
-                  <option value="November">November</option>
-                  <option value="December">December</option>
-                </select>
-            </div>
-            <div className="flex justify-evenly items-center">
-        <button type="submit" className="btn mt-2 btn-outline">Pay</button>
-      </div>
+          <label className="label">
+            <span className="label-text font-semibold">Month</span>
+          </label>
+          <select
+            defaultValue="default"
+            {...register("month", { required: true })}
+            className="select select-bordered w-full"
+          >
+            <option value="default" disabled>
+              Select Month
+            </option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+        </div>
+        <div className="flex justify-evenly items-center">
+          <button type="submit" className="btn mt-2 btn-outline">
+            Pay
+          </button>
+        </div>
       </form>
     </div>
   );
