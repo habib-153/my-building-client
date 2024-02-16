@@ -25,12 +25,10 @@ const Card = ({ item }) => {
         requestDate:moment().format("YYYY-MM-DD"),
         Status: 'pending'
       };
-      // console.log(requestedApartment)
       axiosSecure.post("/agreementRequests", requestedApartment).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
-            //position: "top-end",
             icon: "success",
             title: `Agreement Request Successful. You will be notified soon`,
             showConfirmButton: false,
