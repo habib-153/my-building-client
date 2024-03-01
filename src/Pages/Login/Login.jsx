@@ -56,17 +56,17 @@ const Login = () => {
     }
     
     return (
-        <div className="hero min-h-screen ">
+        <div className="p-8">
           <Helmet>
                 <title>My Building | Login</title>
             </Helmet>
-      <div className="hero-content flex-col md:flex-row lg:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="">
           <img className="rounded-xl" src={loginImg} alt="" />
         </div>
-        <div className="card w-full shadow-2xl bg-base-100">
-        <h1 className="text-5xl font-bold text-center">Login</h1>
-          <form onSubmit={handleLogin} className="card-body">
+        <div className="card w-full shadow-2xl bg-base-100 p-4">
+        <h1 className="text-4xl font-bold text-center">Login</h1>
+          <form onSubmit={handleLogin} className="card-body pt-2">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
