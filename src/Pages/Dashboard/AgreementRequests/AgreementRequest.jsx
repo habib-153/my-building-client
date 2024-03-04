@@ -129,7 +129,10 @@ const AgreementRequest = () => {
                     <p>{agreement.Status}</p>
                   </th>
                   <th className="text-center flex flex-col">
-                    <button
+                    {
+                      agreement.Status == 'checked' ? (undefined) : 
+                      <>
+                      <button
                       onClick={() => handleAccept(agreement)}
                       className="btn btn-xs btn-ghost  text-green-600"
                     >
@@ -141,6 +144,8 @@ const AgreementRequest = () => {
                     >
                       Reject
                     </button>
+                    </>
+                    }
                   </th>
                 </tr>
               ))}
@@ -171,7 +176,9 @@ const AgreementRequest = () => {
                     Request Date: {agreement.requestDate}
                   </p>
                 </div>
-                <div className="text-center px-3 pb-4 flex justify-between items-center">
+                {
+                  agreement.Status == 'checked' ? undefined : 
+                  <div className="text-center px-3 pb-4 flex justify-between items-center">
                     <button
                       onClick={() => handleAccept(agreement)}
                       className="btn  text-green-600"
@@ -179,12 +186,14 @@ const AgreementRequest = () => {
                       Accept
                     </button>
                     <button
-                      onClick={() => handleReject(agreement._id)}
+                      onClick={() => handleReject(agreement)}
                       className="btn  text-red-600"
                     >
                       Reject
                     </button>
                   </div>
+                }
+                
               </div>
             </div>
           ))}

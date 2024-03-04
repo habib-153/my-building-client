@@ -3,15 +3,18 @@
     
 }
 
-.pagination button{
+/* .pagination button{
     margin-right: 10px;
-    padding: 10px;
+    padding: 16px;
+    padding-bottom: 30px;
     align-items: center;
-}
+    height: 40px;
+    justify-items: center;
+} */
 
 .pagination .selected {
     background-color: #1591cfec;
-    border-radius: 50%;
+    border-radius: 100%;
     text-align: center;
     color: black;
     font-weight: 700;

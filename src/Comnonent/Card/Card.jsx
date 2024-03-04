@@ -54,8 +54,8 @@ const Card = ({ item }) => {
   };
   return (
     <div className="card bg-base-100 shadow-xl">
-      <figure className="h-[70%]">
-        <img className="h-full" src={image} />
+      <figure className="h-[300px]">
+        <img className="h-full w-full" src={image} />
       </figure>
       <div className="card-body flex flex-col">
         <h2 className="card-title">Apartment NO: {apartment_No}</h2>

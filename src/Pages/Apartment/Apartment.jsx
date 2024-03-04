@@ -22,7 +22,7 @@ const Apartment = () => {
 
   const url = `/apartment?page=${currentPage}&size=${itemsPerPage}`
   useEffect(()=>{
-    fetch('http://localhost:5000/apartmentsCount')
+    fetch('https://assignment-12-category-0011-serve-side.vercel.app/apartmentsCount')
     .then(res => res.json())
     .then(data=> setCount(data.count))
 },[])
@@ -81,16 +81,16 @@ if(loading){
         </div>
         <div className='pagination'>
                 <p>CurrentPage: {currentPage+1}</p>
-                <button className="bg-black text-white font-bold rounded-full" onClick={handlePrev}><GrPrevious /></button>
+                <button className="bg-black text-white font-bold p-4 mx-1 rounded-full" onClick={handlePrev}><GrPrevious /></button>
                 {
                     pages.map(page =><button 
-                        className={currentPage === page ? 'selected': undefined}
+                        className={`${currentPage === page ? 'selected': undefined} px-4 py-3 mx-1 rounded-full`}
                         onClick={()=>setCurrentPage(page)}
                         key={page}
                         >{page + 1}</button>)
                 }
-                <button className="bg-black text-white font-bold rounded-full" onClick={handleNext}><GrNext></GrNext></button>
-                <select className="bg-slate-300 p-2 rounded-lg" value={itemsPerPage} onChange={handleItemPerPage} name="" id="">
+                <button className="bg-black text-white font-bold p-4 mx-1 rounded-full" onClick={handleNext}><GrNext></GrNext></button>
+                <select className="bg-slate-300 p-2 rounded-full" value={itemsPerPage} onChange={handleItemPerPage} name="" id="">
                     <option value="6">6</option>
                     <option value="10">10</option>
                     <option value="20">20</option>

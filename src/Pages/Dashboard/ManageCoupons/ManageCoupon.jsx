@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaTrash } from "react-icons/fa6";
 import { Helmet } from "react-helmet-async";
+import './swal.css'
 
 const ManageCoupon = () => {
   const axiosSecure = useAxiosSecure();
@@ -35,6 +36,12 @@ const ManageCoupon = () => {
         icon: "success",
         title: "New Coupon added",
         showConfirmButton: true,
+        customClass: {
+          container: "swal-container",
+          popup: "swal-popup",
+          content: "swal-content",
+          confirmButton: "swal-confirm-button",
+        },
         // timer: 1500
       });
     }
@@ -64,7 +71,7 @@ const ManageCoupon = () => {
 }
 
   return (
-    <div>
+    <div className="z-10">
       <Helmet>
                 <title>My Building | ManageCoupon</title>
             </Helmet>
@@ -79,9 +86,9 @@ const ManageCoupon = () => {
           </button>
           <dialog
             id="my_modal_5"
-            className="modal modal-bottom sm:modal-middle"
+            className="modal modal-bottom sm:modal-middle z-0"
           >
-            <div className="modal-box">
+            <div className="modal-box z-0">
               <h3 className="font-bold text-lg text-center">Add New Coupon</h3>
               <form onSubmit={handleSubmit}>
                 <div className="form-control">
