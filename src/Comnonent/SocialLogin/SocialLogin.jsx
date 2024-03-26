@@ -37,7 +37,6 @@ const SocialLogin = () => {
                   `
                 }
               });
-        
               // navigate after login
               navigate('/')
           })
