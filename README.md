@@ -8,7 +8,7 @@ Welcome to the My Building! This website is designed to help the owners to manag
 - **User :**
     - **Email :** user@gmail.com
     - **Password :** User@123
-- **Doctor :**
+- **Member :**
     - **Email :** member@gmail.com
     - **Password :** Member@123
 - **Admin :**
