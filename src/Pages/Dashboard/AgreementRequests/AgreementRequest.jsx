@@ -44,7 +44,7 @@ const AgreementRequest = () => {
       axiosSecure.post("/bookedApartment", bookedAgreement).then((res) => {
         if (res.data.insertedId) {
           axiosSecure.patch(`/users/member/${item.userEmail}`).then((res) => {
-            console.log(res.data);
+            //console.log(res.data);
             if (res.data.modifiedCount > 0) {
               //   refetch();
               Swal.fire({
@@ -72,7 +72,7 @@ const AgreementRequest = () => {
       `/agreementRequests/${item._id}`,
       updatedAgreement
     );
-    console.log(res.data);
+    //console.log(res.data);
     if (res.data.modifiedCount > 0) {
       // show success popup
       Swal.fire({

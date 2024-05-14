@@ -37,7 +37,7 @@ const Apartment = () => {
 
   const handleItemPerPage = (e) => {
     const value = parseInt(e.target.value);
-    console.log(value);
+    //console.log(value);
     setItemPerPage(value);
     setCurrentPage(0);
   };

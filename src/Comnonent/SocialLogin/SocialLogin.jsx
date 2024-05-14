@@ -12,14 +12,14 @@ const SocialLogin = () => {
     const handleGoogleLogin =()=>{
         signInWithGoogle()
         .then((res) => {
-          console.log(res.user)
+          //console.log(res.user)
           const userInfo = {
             email: res.user?.email,
             name: res.user?.displayName 
           }
           axiosPublic.post('/users', userInfo)
           .then(res =>{
-            console.log(res.data)
+            //console.log(res.data)
             Swal.fire({
                 title: "User Logged in successful",
                 showClass: {
@@ -44,8 +44,8 @@ const SocialLogin = () => {
         })
       }
     return (
-        <div className="mx-auto">
-            <button onClick={handleGoogleLogin} className="hover:bg-[#269136]  btn btn-outline my-2">
+        <div className="mx-auto w-full md:px-8">
+            <button onClick={handleGoogleLogin} className="hover:bg-[#269136] w-full btn btn-outline my-2">
               <FcGoogle className="text-xl"></FcGoogle>Continue with Google
             </button>
           </div>

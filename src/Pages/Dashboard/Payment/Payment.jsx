@@ -44,7 +44,7 @@ const Payment = () => {
     }
   }
   const onSubmit = (code) => {
-    console.log(code);
+    // console.log(code);
     applyCoupons(coupons, code.Coupon);
   };
   return (

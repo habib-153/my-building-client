@@ -13,7 +13,7 @@ const Card = ({ item }) => {
   const axiosSecure = useAxiosSecure();
 
   const handleAgreement = (apartment) => {
-    console.log(user.email, apartment);
+    //console.log(user.email, apartment);
     if (user && user.email) {
       const requestedApartment = {
         userName: user.displayName,
@@ -26,7 +26,7 @@ const Card = ({ item }) => {
         Status: 'pending'
       };
       axiosSecure.post("/agreementRequests", requestedApartment).then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         if (res.data.insertedId) {
           Swal.fire({
             icon: "success",

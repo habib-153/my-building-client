@@ -15,7 +15,7 @@ const MakeAnnouncement = () => {
             title, description
         }
         const res = await axiosSecure.post("/announcement", newAnnouncement);
-    console.log(res.data);
+    // console.log(res.data);
     if (res.data.insertedId) {
       Swal.fire({
         icon: "success",

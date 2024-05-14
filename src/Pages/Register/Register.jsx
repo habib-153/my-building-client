@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/assets/others/authentication.gif";
 import { useContext } from "react";
@@ -23,7 +24,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const imageFile = { image: data.photoURL[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
@@ -32,10 +33,10 @@ const Register = () => {
     });
 
     const imageURL = res.data.data.display_url;
-    console.log(imageURL);
+    // console.log(imageURL);
     createUser(data.email, data.password).then((res) => {
       const user = res.user;
-      console.log(user);
+      // console.log(user);
       updateUserProfile(data.name, imageURL).then(() => {
         // console.log("User Updated Successfully")
         const userInfo = {
@@ -60,17 +61,17 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen pt-12">
+    <div className="p-4 md:p-8">
       <Helmet>
         <title>My Building | Register</title>
       </Helmet>
-      <div className="hero-content flex-col md:flex-row lg:gap-12">
-        <div className="">
+      <div className=" grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="hidden md:block">
           <img className="rounded-xl" src={loginImg} alt="" />
         </div>
-        <div className="card w-full shadow-2xl bg-base-100">
-          <h1 className="text-5xl font-bold text-center">Register</h1>
-          <form onSubmit={handleSubmit(onSubmit)} className="card-body pb-4">
+        <div className="card max-w-[450px] mx-auto w-full md:border-2 border-[#6a2881] bg-base-100">
+          <h1 className="text-4xl font-bold text-center">Register</h1>
+          <form onSubmit={handleSubmit(onSubmit)} className="card-body p-0 md:p-4 pt-2">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>

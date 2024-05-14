@@ -26,7 +26,7 @@ The main goal of this project is to create a fully functional, responsive, and e
 - **Payment Processing:** Employs Stripe for convenient and protected online transactions.
 - **Data Fetching:** Uses TanStack Query exclusively for efficient and organized data retrieval through GET methods.
 - **Role-Based Access Control:** Streamlined interfaces catering specifically to Owner, Member, and Administrator needs.
-- **Simplified Agreements:**Effortlessly track and record binding contracts directly on the platform.
+- **Simplified Agreements:** Effortlessly track and record binding contracts directly on the platform.
 - **Centralized Dashboard:** Simultaneously view current leasing details and important announcements.
 - **Adjustable Permissions:** Modify access levels assigned to specific accounts when required.
 

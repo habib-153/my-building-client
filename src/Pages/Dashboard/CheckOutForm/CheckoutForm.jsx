@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
@@ -18,12 +19,12 @@ const CheckoutForm = ({data, rent}) => {
   const axiosSecure = useAxiosSecure()
   const [, refetch] = useCart()
   const price = rent
- console.log(price)
+ //console.log(price)
   useEffect(()=>{
     if(price > 0 ){
       axiosSecure.post('/create-payment-intent', {price: price})
     .then(res =>{
-        console.log(res.data)
+        //console.log(res.data)
         setClientSecret(res.data.clientSecret)
     })
     }
@@ -45,10 +46,10 @@ const CheckoutForm = ({data, rent}) => {
         card
     })
     if (error) {
-        console.log('[error]', error);
+        // console.log('[error]', error);
         setError(error)
       } else {
-        console.log('[PaymentMethod]', paymentMethod);
+        // console.log('[PaymentMethod]', paymentMethod);
         setError('')
       }
     //   confirm payment
@@ -62,10 +63,10 @@ const CheckoutForm = ({data, rent}) => {
         }
     })
     if(confirmError){
-        console.log('Confirm Error')
+        // console.log('Confirm Error')
     }
     else{
-        console.log('payment intent', paymentIntent)
+        // console.log('payment intent', paymentIntent)
         if(paymentIntent.status === 'succeeded'){
             setTransactionId(paymentIntent.id)
             Swal.fire({
@@ -83,7 +84,7 @@ const CheckoutForm = ({data, rent}) => {
                 data: data
               }
               const res = await axiosSecure.post('/payments', payment)
-              console.log('payment saved',res)
+              // console.log('payment saved',res)
               refetch()
               navigate('/dashboard/paymentHistory')
         }
