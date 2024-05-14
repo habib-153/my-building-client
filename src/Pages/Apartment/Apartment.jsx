@@ -7,58 +7,59 @@ import Card from "../../Comnonent/Card/Card";
 import SectionTitle from "../../Comnonent/SectionTitle/SectionTitle";
 import { useState } from "react";
 import { useEffect } from "react";
-import './pagination.css'
+import "./pagination.css";
 import useAuth from "../../Hooks/useAuth";
 
 const Apartment = () => {
   const axiosPublic = useAxiosPublic();
-  const [apartments, setApartments] = useState([])
-  const [count, setCount] = useState(0)
-  const [currentPage, setCurrentPage] = useState(0)
+  const [apartments, setApartments] = useState([]);
+  const [count, setCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemPerPage] = useState(6);
-  const numberOfPages = Math.ceil(count/itemsPerPage)
-  const pages = [...Array(numberOfPages).keys()]
-  const {loading} = useAuth()
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [...Array(numberOfPages).keys()];
+  const { loading } = useAuth();
 
-  const url = `/apartment?page=${currentPage}&size=${itemsPerPage}`
-  useEffect(()=>{
-    fetch('https://assignment-12-category-0011-serve-side.vercel.app/apartmentsCount')
-    .then(res => res.json())
-    .then(data=> setCount(data.count))
-},[])
+  const url = `/apartment?page=${currentPage}&size=${itemsPerPage}`;
+  useEffect(() => {
+    fetch(
+      "https://assignment-12-category-0011-serve-side.vercel.app/apartmentsCount"
+    )
+      .then((res) => res.json())
+      .then((data) => setCount(data.count));
+  }, []);
 
+  useEffect(() => {
+    axiosPublic.get(url).then((res) => {
+      setApartments(res.data);
+    });
+  }, [axiosPublic, currentPage, itemsPerPage, url]);
 
-useEffect(()=>{
-  axiosPublic.get(url)
-  .then(res =>{
-    setApartments(res.data)
-  })
-},[axiosPublic, currentPage, itemsPerPage, url])
+  const handleItemPerPage = (e) => {
+    const value = parseInt(e.target.value);
+    console.log(value);
+    setItemPerPage(value);
+    setCurrentPage(0);
+  };
 
-  const handleItemPerPage = e =>{
-    const value = parseInt(e.target.value)
-    console.log(value)
-    setItemPerPage(value)
-    setCurrentPage(0)
-}
-
-const handlePrev =()=>{
-    if (currentPage>0){
-        setCurrentPage(currentPage -1)
+  const handlePrev = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
     }
-}
+  };
 
-const handleNext =()=>{
-    if (currentPage < pages.length-1){
-        setCurrentPage(currentPage+1)
+  const handleNext = () => {
+    if (currentPage < pages.length - 1) {
+      setCurrentPage(currentPage + 1);
     }
-}
-if(loading){
-  return <div className="text-5xl w-full text-center">
-    <span className="loading my-[20%] loading-dots loading-lg"></span>
-   
-    </div>
-}
+  };
+  if (loading) {
+    return (
+      <div className="text-5xl w-full text-center">
+        <span className="loading my-[20%] loading-dots loading-lg"></span>
+      </div>
+    );
+  }
 
   return (
     <div className="">
@@ -73,30 +74,48 @@ if(loading){
       <div className="my-12">
         <SectionTitle heading="All Apartments"></SectionTitle>
         <div className="my-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {
-            apartments?.map(apartment => <Card 
-                item={apartment}
-                key={apartment._id}></Card>)
-        }
+          {apartments?.map((apartment) => (
+            <Card item={apartment} key={apartment._id}></Card>
+          ))}
         </div>
-        <div className='pagination'>
-                <p>CurrentPage: {currentPage+1}</p>
-                <button className="bg-black text-white font-bold p-4 mx-1 rounded-full" onClick={handlePrev}><GrPrevious /></button>
-                {
-                    pages.map(page =><button 
-                        className={`${currentPage === page ? 'selected': undefined} px-4 py-3 mx-1 rounded-full`}
-                        onClick={()=>setCurrentPage(page)}
-                        key={page}
-                        >{page + 1}</button>)
-                }
-                <button className="bg-black text-white font-bold p-4 mx-1 rounded-full" onClick={handleNext}><GrNext></GrNext></button>
-                <select className="bg-slate-300 p-2 rounded-full" value={itemsPerPage} onChange={handleItemPerPage} name="" id="">
-                    <option value="6">6</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                </select>
-            </div>
+        <div className="pagination">
+          <p>CurrentPage: {currentPage + 1}</p>
+          <button
+            className="bg-black text-white font-bold p-4 mx-1 rounded-full"
+            onClick={handlePrev}
+          >
+            <GrPrevious />
+          </button>
+          {pages.map((page) => (
+            <button
+              className={`${
+                currentPage === page ? "selected" : undefined
+              } px-4 py-3 mx-1 rounded-full`}
+              onClick={() => setCurrentPage(page)}
+              key={page}
+            >
+              {page + 1}
+            </button>
+          ))}
+          <button
+            className="bg-black text-white font-bold p-4 mx-1 rounded-full"
+            onClick={handleNext}
+          >
+            <GrNext></GrNext>
+          </button>
+          <select
+            className="bg-slate-300 p-2 rounded-full"
+            value={itemsPerPage}
+            onChange={handleItemPerPage}
+            name=""
+            id=""
+          >
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="50">50</option>
+          </select>
+        </div>
       </div>
     </div>
   );
